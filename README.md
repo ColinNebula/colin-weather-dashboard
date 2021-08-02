@@ -3,7 +3,7 @@
 Weather Dashboard
 
 
-A weather application which allows the user enter the name of their cigitty of choice and is prompted with the current weather for the specified area or city.
+A weather application which allows the user enter the name of their city of choice and is prompted with the current weather for the specified area or city.
 
 # URL
 https://colinnebula.github.io/colin-weather-dashboard/
