@@ -2,10 +2,11 @@
 
 Weather Dashboard
 
-User enter the name of their cty of choice and is prompted with the current weather for the specified area or city.
+
+A weather application which allows the user enter the name of their cty of choice and is prompted with the current weather for the specified area or city.
 
 # URL
-
+https://colinnebula.github.io/colin-weather-dashboard/
 
 # GitHub Repository
 
@@ -13,6 +14,7 @@ User enter the name of their cty of choice and is prompted with the current weat
 # Weather Dashboard screenshot
 
 # Markup for the Weather Dashboard
+![06-server-side-apis-homework-demo](https://user-images.githubusercontent.com/57843842/127801401-cd5a373b-fe67-4706-9e0f-c1edd16f88c7.png)
 
 
 
