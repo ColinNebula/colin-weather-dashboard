@@ -9,9 +9,10 @@ A weather application which allows the user enter the name of their cty of choic
 https://colinnebula.github.io/colin-weather-dashboard/
 
 # GitHub Repository
-
+https://github.com/ColinNebula/colin-weather-dashboard/tree/develop
 
 # Weather Dashboard screenshot
+![Weather-Dashboard-Screenshot ](https://user-images.githubusercontent.com/57843842/127802033-6a3c776f-5c86-4e4d-aac0-d6d26e966abe.jpg)
 
 # Markup for the Weather Dashboard
 ![06-server-side-apis-homework-demo](https://user-images.githubusercontent.com/57843842/127801401-cd5a373b-fe67-4706-9e0f-c1edd16f88c7.png)
