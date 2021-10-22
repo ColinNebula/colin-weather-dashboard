@@ -1,129 +1,120 @@
-const iconEl = document.querySelector(".weather-icon");
-const tempEl = document.querySelector(".temperature-value p");
-const descEl = document.querySelector(".temperature-description p");
-const locationEl = document.querySelector(".location p");
-const notificationEl = document.querySelector(".notification");
-
-var cityFormEl = document.querySelector("#city-form");
-var nameInputEl = document.querySelector("#cityname");
-var weatherContainerEl = document.querySelector("#weather-container");
-var countrySearchTerm = document.querySelector("#country-search-term");
-var weatherEl = document.querySelector("#weather");
+var cityFormEl = $("#city-form");
+var nameInputEl = $("#cityName");
+var weatherContainerEl = $("#weather-container");
 
 //Display Date and time 
-$(document).ready(function() {
+$(document).ready(function () {
   var currentDay = moment();
   $("#currentDay").text(currentDay.format("MMMM, Do YYYY, hh:mm:ss a"));
 
 });
-  
 
-weather.temperature = {
-    unit : "celsius"
-}
-
-//Display Date and time 
-$(document).ready(function() {
-  var currentDay = moment();
-  $("#currentDay").text(currentDay.format("MMMM, Do YYYY, hh:mm:ss a"));
-});
-
-
-
-const KELVIN = 273;
-
-
-// set position
-function setPosition(position){
-  let lat = position.coords.lat;
-  let lon = position.coords.lon;
-  
-  getWeather(lat, lon);
-}
-console.log("inside");
-
-
-
-// Event handler function call
-var formSubmitHandler = function(event) {
+//Event Handler
+var formSubmitHandler = function (event) {
   event.preventDefault();
+  console.log(event);
   
   // get value from input element
-var cityname = nameInputEl.value.trim();
-if (cityname) {
-  getWeather(cityname);
-  nameInputEl.value = "";
-} else {
-  alert("Please enter a  City name!");
-}
-// clear old content
-  weatherContainerEl.textContent = "";
+  var cityName = nameInputEl.val().trim();
+
+  if (cityName) {
+    getWeather(cityName);
+    nameInputEl.value = "";
+  } else {
+    alert("Please enter  name of a city in the search box!");
+  }
   console.log(event);
 };
 
-  // clear old content
-  //weatherContainerEl.textContent = "";
-  
-
-
-// C to F conversion
-function celsiusToFahrenheit(temperature){
-  return (temperature * 9/5) + 32;
+weather.temperature = {
+  unit: "celsius"
 }
-//get coordinates function for one location
-function getCityCoord(){
+const KELVIN = 273;
 
-  fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=toronto&units=metric&appid=b26a1b41c4125331917058bf632db977"
-  )
-.then(
-    function(res) {
-      console.log(res);
-      return res.json();
-    })
-    .then(function(data) {
-      const {coord} = data
-      const {lon, lat} = coord
-      console.log(data.coord.lon, data.coord.lat);
-      getWeather(lat, lon);
-    });
-};
+// Get weather function
+var getWeather = function (cityName) {
+  var apiKey = 'b26a1b41c4125331917058bf632db977'
 
-//get weather function with lon and lat parameters
-function getWeather(city) {
-  let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${43.7001}&lon=${-79.4163}&exclude={part}&units=metric&appid=b26a1b41c4125331917058bf632db977`
-  
-  fetch(api)
-    .then(
-    function(response) {
-      let data = response.json();
-      console.log("getWeather" ,data);
-      console.log("inside", response);
-      displayWeather(data, city);
-      return data;
-    });
+  function getWeatherData(cityName) {
+    // make a request to the url
+    // format the open weather api url
+    var apiUrl1 = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=b26a1b41c4125331917058bf632db977&q=" + cityName;
+
     
-  }        
+    fetch(apiUrl1)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        console.log(data);
+        // format the open weather api url
+        var apiUrl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude={part}&units=metric&appid=b26a1b41c4125331917058bf632db977`;
+        fetch(apiUrl2)
+          .then(function (response) {
+            const { status, data } = response;
+            console.log(status);
+            return response.json()
+          })
+          .then(function (weatherData) {
 
-  var displayWeather = function(city, searchTerm) {
-    if (weather.length === 0) {
-      weatherContainerEl.textContent = "No info found.";
-      
-      return;
-    }
-  
-  function displayWeather (weather) {
-  console.log(weather);
-  let city = document.querySelector('.location .city'); 
-  city.innerText = `${weather.name} ${weather.sys.country}`;
+            
+            // if (status == "ok") {
+            // response.json().then(function(data) {
+            console.log(weatherData);
+            displayWeather(cityName, weatherData);
 
+          });
+      })
+
+  }
+
+  getWeatherData(cityName);
 }
 
-};
-   
-console.log("outside1");
+getWeather("Toronto");
+
+// Display Weather
+function displayWeather(cityName, weatherData) {
+  const mainEl = $("#weather");
+  const uviEl = $("#uvi");
+  const tempEl = $("#temp");
+  const feelsLikeEl = $("#feelsLike");
+  const humidityEl = $("#humidity");
+  const cityEl = $("#city");
+  const windEl = $("#wind");
+  const descriptionEl = $("#description");
+  const iconEl = $("#icon");
+
+  console.log('cityName before printing=', cityEl.text());
+  cityEl.text(cityName.toUpperCase() + ' weather ');
+
+  // Fill in the Data here
+  mainEl.prepend(weatherData.current.weather[0].main);
+  tempEl.text(weatherData.current.temp);
+  uviEl.text(weatherData.current.uvi);
+  feelsLikeEl.text(weatherData.current.feels_like);
+  humidityEl.text(weatherData.current.humidity);
+  windEl.text(weatherData.current.wind);
+  descriptionEl.text(weatherData.current.weather[0].description);
+  
+  
+  // Weather image
+  const weatherIconEl = $('<img>');
+  weatherIconEl.attr('src', 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon +'@2x.png');
+  
+  iconEl.append(weatherIconEl);
+}
+//Button
+var citySearchEl = $("#citySearch");
+
+citySearchEl.click(function () {
+  var inputEl = $("#cityName");
+  cityName = inputEl.val().toUpperCase();
+  getWeather(cityName);
+})
+
+cityFormEl.on("submit", formSubmitHandler);
 
 
 
-weatherEl.addEventListener("submit", formSubmitHandler);
-console.log("outside");
+

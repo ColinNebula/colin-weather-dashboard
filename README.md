@@ -1,51 +1,42 @@
-# colin-weather-dashboard
+## colin-weather-dashboard
 
-Weather Dashboard
+# Weather Dashboard
 
-
+## Description
 A weather application which allows the user enter the name of their city of choice and is prompted with the current weather for the specified area or city.
 
-# URL
+## URL
 https://colinnebula.github.io/colin-weather-dashboard/
 
-# GitHub Repository
-https://github.com/ColinNebula/colin-weather-dashboard/tree/develop
+## GitHub Repository
+https://github.com/ColinNebula/colin-weather-dashboard/tree/main
 
-# Weather Dashboard screenshot
-![Weather-Dashboard-Screenshot ](https://user-images.githubusercontent.com/57843842/127802033-6a3c776f-5c86-4e4d-aac0-d6d26e966abe.jpg)
+## Weather Dashboard screenshot
+![Project_Screenshot](https://user-images.githubusercontent.com/57843842/138523196-dc974546-1ac4-41c6-ae15-7268fcf4d13c.jpg)
 
-# Markup for the Weather Dashboard
+## Markup for the Weather Dashboard
 ![06-server-side-apis-homework-demo](https://user-images.githubusercontent.com/57843842/127801401-cd5a373b-fe67-4706-9e0f-c1edd16f88c7.png)
 
 
-
-# Table of Contents
+## Table of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
 
 
-# Installatinon
-With the use of any browser the user can connect to the website and all of the available feature will be at every users finger tips.
+## Installation
+Download or clone the repository
+Run in favorite browser
 
-# Usage 
-With the use all of the popular browser, type to website link and blast-off.
+## License: 
+This application is covered by [MIT](https://opensource.org/licenses/MIT) license.
 
-# Development: 
-N/A
-
-# License: 
-MIT
-
-# Credits: 
+## Credits: 
 Earth
 
-# Author
+## Author
 Colin Nebula
 
-# Contribute:
-Debugging, adding new features
 
 
