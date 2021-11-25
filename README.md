@@ -1,7 +1,4 @@
-## colin-weather-dashboard
-
-# Weather Dashboard
-
+## Colin-Weather-Dashboard
 ## Description
 A weather application which allows the user enter the name of their city of choice and is prompted with the current weather for the specified area or city.
 
@@ -13,7 +10,6 @@ SO THAT I can plan a trip accordingly
 ## Table of Contents
 * [Installation](#installation)
 * [License](#license)
-* [Credits](#credit)
 * [Author](#author)
 
 ## URL
@@ -28,20 +24,14 @@ https://github.com/ColinNebula/colin-weather-dashboard/tree/main
 ## Markup for the Weather Dashboard
 ![06-server-side-apis-homework-demo](https://user-images.githubusercontent.com/57843842/127801401-cd5a373b-fe67-4706-9e0f-c1edd16f88c7.png)
 
-
 ## Installation
 Download or clone the repository
-Run in favorite browser
+Click on index.html to start
 
 ## License: 
 This application is covered by [MIT](https://opensource.org/licenses/MIT) license.
-
-## Credits: 
-Earth
-
 ## Author
 Colin Nebula
-
 ## Acceptance Criteria
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city

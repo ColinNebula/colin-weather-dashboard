@@ -22,7 +22,7 @@ body {
 }
 
 header {
-  color: white; 
+  color: --tertiary; 
   text-align: center;
   padding: 30px;
 }
@@ -31,6 +31,23 @@ header {
   height: 90px;
   background-color: rgb(0, 47, 255); /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, rgb(26, 88, 233) , rgb(5, 6, 56));
+}
+
+.navbar-brand {
+  font-size: 36px;
+}
+
+.search-header {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.city-name {
+  font-size: 30px;
+}
+
+.forecast-date {
+  font-size: 18px;
 }
 
 h1,

@@ -1,6 +1,9 @@
 var cityFormEl = $("#city-form");
+var tempEl = $("#temp");
 var nameInputEl = $("#cityName");
 var weatherContainerEl = $("#weather-container");
+
+
 
 //Display Date and time 
 $(document).ready(function () {
@@ -96,6 +99,7 @@ function displayWeather(cityName, weatherData) {
   humidityEl.text(weatherData.current.humidity);
   windEl.text(weatherData.current.wind);
   descriptionEl.text(weatherData.current.weather[0].description);
+  // weatherIconEl.icon(weatherData.current.weather[0].icon);
   
   
   // Weather image
@@ -112,7 +116,7 @@ citySearchEl.click(function () {
   cityName = inputEl.val().toUpperCase();
   getWeather(cityName);
 })
-
+// Form submit form handler
 cityFormEl.on("submit", formSubmitHandler);
 
 
